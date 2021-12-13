@@ -20,7 +20,7 @@ export default function Home() {
   // console.log(spanRef);
   
   const render = () => {
-    counter.textContent = state.toString();
+    // counter.textContent = state.toString();
   }
 
   render()
