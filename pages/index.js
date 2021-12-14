@@ -16,6 +16,8 @@ import {
 import { PhotoCamera } from '@mui/icons-material';
 import useStyles from '../lib/styles.js';
 
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 const Home = () => {
   const classes = useStyles();
   return (
@@ -57,24 +59,42 @@ const Home = () => {
         </Container>
         <Container maxWidth="md" className={classes.cardGrid}>
           <Grid container spacing={4}>
-            <Grid item>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
-                  title="Image title"
-                />
-                <CardContent
-                  className={classes.cardContent}
-                >
-                  <Typography variant="h5" gutterBottom>
-                    Photo Album
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {cards.map((item) => (
+              <Grid key={item} item xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent
+                    className={classes.cardContent}
+                  >
+                    <Typography variant="h5" gutterBottom>
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to descrime the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">View</Button>
+                    <Button size="small" color="primary">Send</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+            
           </Grid>
         </Container>
+      </Box>
+      <Box as="footer" className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary">
+          Something here to give the footer a purpose!
+        </Typography>
       </Box>
     </>
   )
