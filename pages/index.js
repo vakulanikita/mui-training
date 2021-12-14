@@ -1,58 +1,43 @@
-import NextLink from 'next/link'
-import Main from '../components/layouts/main'
 import {
   Box,
-  Stack,
   Typography,
-  Button,
-  Divider 
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container
 } from '@mui/material'
-import React from 'react';
+import { PhotoCamera } from '@mui/icons-material';
 
-export default function Home() {
-
-  let state = 3;
-
-  React.useEffect(() => {
-    const counter = document.getElementById("counter")
-  }, [])
-
-  // console.log(spanRef);
-  
-  const render = () => {
-    // counter.textContent = state.toString();
-  }
-
-  render()
-
+const Home = () => {
   return (
-    <Main title="index page">
-      <Stack
-        my={2}
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Typography as="span" fontWeight="bold">Redux</Typography>
-        <Button variant="contained" sx={{textTransform: "none"}}>Сменить тему</Button>
-      </Stack>
-      <Divider />
-      <Stack
-        p={1}
-        mt={2}
-        sx={{ border: "1px solid lightgray"}}
-        direction="row"
-        alignItems="center"
-        gap={1}
-      >
-        <Typography as="span">
-          Счетчик:
-          <Typography as="span" id="counter"></Typography>
-        </Typography>
-        <Button variant="contained" sx={{textTransform: "none"}} color="success">Добавить</Button>
-        <Button variant="contained" sx={{textTransform: "none"}} color="error">Убрать</Button>
-        <Button variant="contained" sx={{textTransform: "none"}}>Async</Button>
-      </Stack>
-    </Main>
+    <>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar>
+          <PhotoCamera />
+          <Typography variant="h6">
+            Photo Album
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box as="main">
+        <Container maxWidth="sm">
+          <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+            Photo Album
+          </Typography>
+          <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            Hello everyone. This is a photo album and Im trying to make this sentence as long
+            as possible so we can see how does it look like on the screen
+          </Typography>
+        </Container>
+      </Box>
+    </>
   )
 }
+
+export default Home;
